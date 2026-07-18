@@ -1,0 +1,10 @@
+.form-container {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.slds-notify_alert {
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}

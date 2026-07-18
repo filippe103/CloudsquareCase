@@ -1,0 +1,53 @@
+<template>
+    <div class="form-container">
+        <template if:true={showBanner}>
+            <div class={bannerClass} role="alert">
+                <span class="slds-assistive-text">{bannerVariant}</span>
+                <h2>{bannerMessage}</h2>
+                <div class="slds-notify__close">
+                    <lightning-button-icon
+                        icon-name="utility:close"
+                        variant="bare-inverse"
+                        size="small"
+                        alternative-text="Close"
+                        title="Close"
+                        onclick={handleCloseBanner}
+                    ></lightning-button-icon>
+                </div>
+            </div>
+        </template>
+        <lightning-card title="Application Form">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+            <div class="slds-form slds-p-around_small">
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="companyName" label="Company Name" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="federalTaxId" label="Federal Tax ID" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="contactFirstName" label="Contact First Name" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="contactLastName" label="Contact Last Name" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="email" label="Email" type="email" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="phone" label="Phone" type="tel" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-bottom_small">
+                        <lightning-input name="annualRevenue" label="Annual Revenue" type="number"></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-p-top_small">
+                    <lightning-button type="button" onclick={handleSubmit} label="Submit" variant="brand"></lightning-button>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>
